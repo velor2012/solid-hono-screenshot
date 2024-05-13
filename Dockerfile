@@ -12,8 +12,8 @@ RUN fc-cache -f -v
 # 获取最新版本号
 WORKDIR /
 # 最新版地址：
-RUN git clone https://github.com/velor2012/dnscontrol-webui.git
-WORKDIR /dnscontrol-webui
+RUN git clone https://github.com/velor2012/solid-hono-screenshot.git app
+WORKDIR /app
 # RUN cd dnscontrol-webui && npm install -g pnpm
 # RUN cd dnscontrol-webui && pnpm install && pnpm build
 RUN cd apps/server && cp .env.example .env

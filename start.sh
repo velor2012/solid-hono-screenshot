@@ -7,4 +7,4 @@ if [ -d "/etc/envs" ]; then
     cp /etc/envs/server.env /${project_name}/apps/server/.env
 fi
 
-cd /${project_name}/apps/server && node ./dist/main.js
+cd /${project_name}/apps/server && node ./dist/index.js

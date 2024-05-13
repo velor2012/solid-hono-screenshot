@@ -22,8 +22,6 @@ RUN npm install -g pnpm
 RUN pnpm install
 RUN pnpm build
 
-COPY ./installDnscontrol.sh ./installDnscontrol.sh
-RUN bash ./installDnscontrol.sh
 #RUN mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bk
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./start.sh ./start.sh

@@ -4,7 +4,8 @@ RUN apt update -y
 
 RUN apt install -y nginx
 
-RUN apt install -y --no-install-recommends tini
+RUN apt install -y --no-install-recommends tini fonts-noto-cjk
+RUN fc-cache -f -v
 
 #RUN  /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
 

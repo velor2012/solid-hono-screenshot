@@ -1,3 +1,4 @@
+import { writeFileSync } from 'fs'
 import { Hono } from 'hono'
 import { env } from 'hono/adapter'
 import type { FC } from 'hono/jsx'
@@ -65,9 +66,16 @@ app.get('/screenshotFromApi', async (c) => {
         })
         const base64Data = (await res.json()).data
         if(returnHtml) return c.html(<Top url={`data:image/png;base64,${base64Data}`}></Top>)
-        return c.newResponse(`data:image/png;base64,${base64Data}`)
+
+        // 创建图片buffer对象，返回image/png类型
+        const imageBuffer = Buffer.from(base64Data, 'base64');
+        // 返回图片对象
+        c.header('Content-Type', 'image/png')
+        return c.newResponse(imageBuffer, 200)
     }
     console.log(`apiUrl: ${apiUrl}`)
-  return fetch(apiUrl)
+  const resp = await fetch(apiUrl)
+
+  return c.newResponse(resp.body)
 })
 export default app

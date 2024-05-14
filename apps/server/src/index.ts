@@ -1,9 +1,13 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 import  ssFromPuppter from './ssFromPuppter'
 import  ssFromApi from './ssFromApi'
-const app = new Hono().basePath('/api')
 
+const app = new Hono().basePath('/api')
+app.use(cors({
+    origin: '*'
+}))
 app.get('/', (c) => {
   return c.text('Hello Hono!')
 })

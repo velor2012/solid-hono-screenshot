@@ -2,7 +2,14 @@
 import { render } from 'solid-js/web';
 
 import './index.css';
+import './styles/Btn.css';
+import './styles/TextFiled.css';
+import './styles/SelectType.css';
+import './styles/Skeleton.css';
+import './styles/Image.css';
 import App from './App';
+import { ConfigProvider } from './ConfigProvider';
+import { MyToast } from './components/Toast';
 
 const root = document.getElementById('root');
 
@@ -12,4 +19,4 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => <App />, root!);
+render(() =>       <ConfigProvider><App /><MyToast/></ConfigProvider>, root!);

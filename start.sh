@@ -6,5 +6,5 @@ project_name=app
 if [ -d "/etc/envs" ]; then
     cp /etc/envs/server.env /${project_name}/apps/server/.env
 fi
-
-cd /${project_name}/apps/server && node ./dist/index.js
+env > /${project_name}/apps/server/.env
+cd /${project_name}/apps/server && node ./dist/index.js --env-file=.env

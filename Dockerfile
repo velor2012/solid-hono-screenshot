@@ -16,8 +16,8 @@ RUN git clone https://github.com/velor2012/solid-hono-screenshot.git app
 WORKDIR /app
 # RUN cd dnscontrol-webui && npm install -g pnpm
 # RUN cd dnscontrol-webui && pnpm install && pnpm build
-# RUN cd apps/server && cp .env.example .env
-# RUN cd apps/front && cp .env.example .env
+RUN cd apps/server && cp .env.example .env
+RUN cd apps/front && cp .env.example .env
 RUN npm install -g pnpm@9.1.1
 RUN pnpm install
 RUN pnpm build

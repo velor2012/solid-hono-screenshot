@@ -1,0 +1,5 @@
+(async function () {
+    const helMicro = await import('hel-micro');
+    await helMicro.preFetchLib('@velor2012/common-lib',{ versionId: '2.6.1' });
+    import('./loadApp');
+  })();

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 // import devtools from 'solid-devtools/vite';
-
+import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig({
   plugins: [
     /* 
@@ -10,6 +10,10 @@ export default defineConfig({
     */
     // devtools(),
     solidPlugin(),
+    visualizer({
+        // 打包完成后自动打开浏览器，显示产物体积报告
+        open: true,
+      }),
   ],
   server: {
     port: 5174,

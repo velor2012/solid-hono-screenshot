@@ -1,6 +1,7 @@
 import { createSignal, createContext, useContext, Context } from "solid-js";
 import { createStore } from "solid-js/store";
 import { showToast } from "./components/Toast";
+import { callRemoteMethod } from "./utils";
 let ConfigContext: Context<{
     config: {
         w: number | string;
@@ -8,7 +9,7 @@ let ConfigContext: Context<{
         url: string;
         type: string;
     };
-    showConfig: () => void;
+    showConfig: () => any;
     setUrl: (newV: string) => void;
     setW: (newV: number | string) => void;
     setH: (newV: number | string) => void;
@@ -35,8 +36,9 @@ export function ConfigProvider(props: any) {
     setConfig("type", newV);
   };
   
-  const showConfig = () => {
-    showToast({title: "配置", content: JSON.stringify(config)})
+  const showConfig = async () => {
+    const t = await callRemoteMethod()
+    showToast({title: "配置", content: t})
     console.log("showConfig:", config);
   };
 
